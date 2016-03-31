@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.view.AboutController">
+   <children>
+      <Button layoutX="194.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="55.0" text="Close" />
+      <Label layoutX="92.0" layoutY="138.0" prefHeight="83.0" prefWidth="259.0" text="Autor aplPokud by se pro  stejný účel použil smysluplný  text, bylo by těžké hodnotit  pouze vzhled, aniž by se pozorovatel nechal svést ke čtení obsahu." textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="190.0" layoutY="14.0" prefHeight="31.0" prefWidth="62.0" text="About" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="83.0" fitWidth="122.0" layoutX="180.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/zcu_logo.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
