@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditClientController">
+   <children>
+      <Button layoutX="278.0" layoutY="309.0" mnemonicParsing="false" onAction="#addKey" text="+" />
+      <Button layoutX="278.0" layoutY="345.0" mnemonicParsing="false" onAction="#removeKey" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Label layoutX="10.0" layoutY="4.0" text="Public key" />
+      <Label layoutX="10.0" layoutY="273.0" text="Know hosts" />
+      <Button layoutX="125.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleClose" prefHeight="25.0" prefWidth="70.0" text="Close" />      <Label layoutX="10.0" layoutY="144.0" text="Private key" />
+      <Button layoutX="235.0" layoutY="122.0" mnemonicParsing="false" onAction="#generateKeys" prefHeight="49.0" prefWidth="70.0" text="Generate keys" textAlignment="CENTER" wrapText="true" />
+      <TextArea fx:id="privateKey" layoutX="10.0" layoutY="164.0" prefHeight="100.0" prefWidth="210.0" text="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local" wrapText="true" />
+      <TextArea fx:id="publicKey" layoutX="10.0" layoutY="23.0" prefHeight="100.0" prefWidth="210.0" text="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local" wrapText="true" />
+
+      <TableView layoutX="10.0" layoutY="292.0" prefHeight="100.0" prefWidth="256.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Name" />
+          <TableColumn prefWidth="180.0" resizable="false" text="Public key" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

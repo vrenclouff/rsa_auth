@@ -1,14 +1,16 @@
-package main.java.view;
+package view;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import main.java.utils.LocateString;
+import utils.LocateString;
 
 import java.io.IOException;
 
@@ -17,11 +19,18 @@ import java.io.IOException;
  */
 public class RootController {
 
+    @FXML
+    private ImageView client1_status;
+
+    @FXML
+    private ImageView client2_status;
+
     private Stage primaryStage;
 
     @FXML
     private void initialize() {
-
+        changeStatus(client1_status, false);
+        changeStatus(client2_status, false);
     }
 
     /**
@@ -42,6 +51,12 @@ public class RootController {
     @FXML
     private void reset(ActionEvent event){
         System.out.println("Reset data!!!!");
+
+    }
+
+    @FXML
+    private void connect(ActionEvent event){
+        System.out.println("Connect to server!!!");
     }
 
     @FXML
@@ -59,11 +74,38 @@ public class RootController {
         dialogStage.setTitle(LocateString.getValue("title.about"));
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(primaryStage);
-        Scene scene = new Scene(page);
-        dialogStage.setScene(scene);
+        dialogStage.setScene(new Scene(page));
 
         AboutController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         dialogStage.showAndWait();
+    }
+
+    @FXML
+    private void showEdit(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(FXMLTemplates.EDIT);
+        AnchorPane page = null;
+        try {
+            page = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle(LocateString.getValue("title.edit"));
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        dialogStage.setScene(new Scene(page));
+
+        EditClientController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        dialogStage.showAndWait();
+    }
+
+    private void changeStatus(ImageView client, boolean status){
+        String image = "/images/";
+        image += status ? "green.png" : "red.png";
+        client.setImage(new Image(image));
     }
 }

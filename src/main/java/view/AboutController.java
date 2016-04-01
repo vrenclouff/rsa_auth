@@ -1,7 +1,5 @@
-package main.java.view;
+package view;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -30,7 +28,7 @@ public class AboutController {
      * Called when the user clicks cancel.
      */
     @FXML
-    private void handleCancel() {
+    private void handleClose() {
         dialogStage.close();
     }
 }

@@ -1,4 +1,4 @@
-package main.java.utils;
+package utils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +18,7 @@ public class LocateString {
         InputStream input = null;
         try {
 
-            String filename = "main\\resources\\Messages.properties";
+            String filename = "Messages.properties";
             input = LocateString.class.getClassLoader().getResourceAsStream(filename);
             if(input==null) System.out.println("Sorry, unable to find " + filename);
             prop.load(input);
@@ -29,7 +29,7 @@ public class LocateString {
                 try {
                     input.close();
                 } catch (IOException e) {
-                    System.err.println(LocateString.getValue("error.close_properties"));
+                    e.printStackTrace();
                 }
             }
         }
