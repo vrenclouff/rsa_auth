@@ -1,9 +1,12 @@
 package view;
 
+import app.KeyGenerator;
 import dao.Client;
+import dao.KnownHost;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -25,11 +28,21 @@ public class EditClientController {
     @FXML
     private TextArea privateKey;
 
+    @FXML
+    private TableView<KnownHost> knownHost;
+
+    @FXML
+    private TableColumn<KnownHost, String> nameColumn;
+    @FXML
+    private TableColumn<KnownHost, String> publicKeyColumn;
+
     private Stage primaryStage;
+    private Client client;
 
     @FXML
     private void initialize() {
-
+        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        publicKeyColumn.setCellValueFactory(cellData -> cellData.getValue().keyProperty());
     }
 
     /**
@@ -51,8 +64,7 @@ public class EditClientController {
 
     @FXML
     private void addKey(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(FXMLTemplates.ADD_KEY);
+        FXMLLoader loader = new FXMLLoader(FXMLTemplates.ADD_KEY);
         AnchorPane page = null;
         try {
             page = (AnchorPane) loader.load();
@@ -67,17 +79,43 @@ public class EditClientController {
         dialogStage.setScene(new Scene(page));
 
         AddPublicKeyController controller = loader.getController();
+        controller.setClient(client);
         controller.setDialogStage(dialogStage);
         dialogStage.showAndWait();
     }
 
     @FXML
     private void removeKey(){
-        System.out.println("Remove key!!!!");
+        int selectedIndex = knownHost.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            knownHost.getItems().remove(selectedIndex);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(primaryStage);
+            alert.setTitle(LocateString.getValue("alert.warning.title.noSelection"));
+            alert.setHeaderText(LocateString.getValue("alert.warning.header.noSelection"));
+            alert.setContentText(LocateString.getValue("alert.warning.content.noSelection"));
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void generateKeys(){
-        System.out.println("Generate keys!!!");
+        KeyGenerator generator = new KeyGenerator();
+        this.client.setPublicKey(generator.getPublicKey());
+        this.client.setPrivateKey(generator.getPrivateKey());
+        updateClient();
+    }
+
+    public void setClient(Client client){
+        this.client = client;
+        updateClient();
+    }
+
+    private void updateClient(){
+        if (client == null) return;
+        this.publicKey.setText(client.getPublicKey());
+        this.privateKey.setText(client.getPrivateKey());
+        this.knownHost.setItems(client.getKnownHosts());
     }
 }

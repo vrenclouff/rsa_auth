@@ -1,5 +1,7 @@
 package view;
 
+import dao.Client;
+import dao.KnownHost;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,6 +18,7 @@ public class AddPublicKeyController {
     @FXML
     private TextField clientKey;
 
+    private Client client;
     private Stage primaryStage;
 
     @FXML
@@ -42,7 +45,11 @@ public class AddPublicKeyController {
 
     @FXML
     private void handleSave(){
-        System.out.println("Name: "+clientName.getText());
-        System.out.println("Public key: "+clientKey.getText());
+        client.getKnownHosts().add(new KnownHost(clientName.getText(), clientKey.getText()));
+        handleClose();
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

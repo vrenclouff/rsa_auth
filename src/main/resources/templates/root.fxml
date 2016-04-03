@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -15,7 +16,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#reset" text="Reset" />
+                  <MenuItem fx:id="reset" mnemonicParsing="false" text="Reset" />
               <MenuItem mnemonicParsing="false" onAction="#close" text="Exit" />
             </items>
           </Menu>
@@ -55,12 +56,31 @@
                   <Image url="@../images/red.png" />
                </image>
             </ImageView>
-            <Button layoutX="182.0" layoutY="522.0" mnemonicParsing="false" onAction="#showEdit" prefHeight="25.0" prefWidth="70.0" text="Edit" />
-            <Button layoutX="264.0" layoutY="522.0" mnemonicParsing="false" onAction="#connect" prefHeight="25.0" prefWidth="70.0" text="Connect" />
-            <Button layoutX="627.0" layoutY="522.0" mnemonicParsing="false" onAction="#connect" prefHeight="25.0" prefWidth="70.0" text="Connect" />
-            <Button layoutX="545.0" layoutY="522.0" mnemonicParsing="false" onAction="#showEdit" prefHeight="25.0" prefWidth="70.0" text="Edit" />
-            <Button layoutX="336.0" layoutY="12.0" mnemonicParsing="false" onAction="#showEdit" prefHeight="25.0" prefWidth="70.0" text="Edit" />
-            <Button layoutX="418.0" layoutY="12.0" mnemonicParsing="false" onAction="#connect" prefHeight="25.0" prefWidth="70.0" text="Connect" />
+            <Button fx:id="client1_edit" layoutX="173.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
+            <Button fx:id="client2_connect" layoutX="600.0" layoutY="522.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Disconnect" />
+            <Button fx:id="client2_edit" layoutX="528.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
+            <Button fx:id="server_edit" layoutX="375.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
+            <Label layoutX="198.0" layoutY="409.0" text="1" textFill="WHITE">
+               <font>
+                  <Font size="70.0" />
+               </font>
+            </Label>
+            <Label layoutX="555.0" layoutY="408.0" text="2" textFill="WHITE">
+               <font>
+                  <Font size="70.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="server_status1" fitHeight="15.0" fitWidth="18.0" layoutX="467.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/green.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="server_status2" fitHeight="15.0" fitWidth="18.0" layoutX="467.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/red.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="client1_connect" layoutX="245.0" layoutY="522.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Connect" />
          </children>
       </AnchorPane>
    </bottom>

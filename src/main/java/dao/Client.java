@@ -1,7 +1,7 @@
 package dao;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Created by lukas_cerny on 1. 4. 2016.
@@ -10,41 +10,52 @@ public class Client {
 
     private long id;
 
-    private StringProperty name;
+    private String name;
 
-    private StringProperty publicKey;
+    private boolean connecting;
 
-    private StringProperty privateKey;
+    private String publicKey;
 
-    public Client (String name){
-        this.name = new SimpleStringProperty(name);
+    private String privateKey;
+
+    private ObservableList<KnownHost> knownHosts = FXCollections.observableArrayList();
+
+    public Client (long id, String name){
+        this.id = id;
+        this.name = name;
+        this.connecting = false;
+        this.publicKey = "";
+        this.privateKey = "";
     }
 
     public long getId() {
         return id;
     }
-
     public String getName() {
-        return name.get();
-    }
-
-    public StringProperty nameProperty() {
         return name;
     }
-
     public String getPublicKey() {
-        return publicKey.get();
-    }
-
-    public StringProperty publicKeyProperty() {
         return publicKey;
     }
-
     public String getPrivateKey() {
-        return privateKey.get();
-    }
-
-    public StringProperty privateKeyProperty() {
         return privateKey;
+    }
+    public boolean isConnecting() {
+        return connecting;
+    }
+    public void setConnecting(boolean connecting) {
+        this.connecting = connecting;
+    }
+    public ObservableList<KnownHost> getKnownHosts() {
+        return knownHosts;
+    }
+    public void setKnownHosts(ObservableList<KnownHost> knownHosts) {
+        this.knownHosts = knownHosts;
+    }
+    public void setPrivateKey(String privateKey) {
+        this.privateKey = privateKey;
+    }
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
     }
 }
