@@ -2,6 +2,9 @@ package app;
 
 import dao.Client;
 import dao.KnownHost;
+import dto.Key;
+import dto.PrivateKey;
+import dto.PublicKey;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,8 @@ import view.FXMLTemplates;
 import view.RootController;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 /**
  * Created by lukas_cerny on 1. 4. 2016.
@@ -51,8 +56,23 @@ public class AppController extends Application {
     }
 
     public boolean authentication(Client client){
+        if (client == null) return false;
         KnownHost host = server.getKnownHosts().stream().filter(knownHost -> knownHost.getKey().contains(client.getName())).findFirst().orElse(null);
-        return host != null ? true : false;
+        if (host == null) return false;
+
+        /** Vygenerovani velkeho nahodneho cisla */
+        BigInteger randomNumber = BigInteger.probablePrime(256, new SecureRandom());
+
+        /** Zasifrovano verejnym klicem */
+        Key hostPublicKey = new PublicKey(host.getKey(), client.getName());
+        BigInteger cipher = RSA.encrypt(hostPublicKey, randomNumber);
+
+        /** Zasifrovane cislo desifrovano privatnim klicem */
+        Key clientPrivateKey = new PrivateKey(client.getPrivateKey());
+        BigInteger plane = RSA.decrypt(clientPrivateKey, cipher);
+
+        /** Porovnani vysledku */
+        return plane.compareTo(randomNumber) == 0;
     }
 
     public void run(String [] args){

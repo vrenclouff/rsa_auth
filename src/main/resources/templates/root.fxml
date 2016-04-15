@@ -57,7 +57,7 @@
                </image>
             </ImageView>
             <Button fx:id="client1_edit" layoutX="173.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
-            <Button fx:id="client2_connect" layoutX="600.0" layoutY="522.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Disconnect" />
+            <Button fx:id="client2_connect" layoutX="600.0" layoutY="522.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Disconnect" />
             <Button fx:id="client2_edit" layoutX="528.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
             <Button fx:id="server_edit" layoutX="375.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Edit" />
             <Label layoutX="198.0" layoutY="409.0" text="1" textFill="WHITE">
@@ -80,7 +80,7 @@
                   <Image url="@../images/red.png" />
                </image>
             </ImageView>
-            <Button fx:id="client1_connect" layoutX="245.0" layoutY="522.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Connect" />
+            <Button fx:id="client1_connect" layoutX="245.0" layoutY="522.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Connect" />
          </children>
       </AnchorPane>
    </bottom>

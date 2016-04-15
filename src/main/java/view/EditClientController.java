@@ -1,6 +1,6 @@
 package view;
 
-import app.KeyGenerator;
+import app.KeyMachine;
 import dao.Client;
 import dao.KnownHost;
 import javafx.fxml.FXML;
@@ -101,7 +101,7 @@ public class EditClientController {
 
     @FXML
     private void generateKeys(){
-        KeyGenerator generator = new KeyGenerator();
+        KeyMachine generator = new KeyMachine(client.getName());
         this.client.setPublicKey(generator.getPublicKey());
         this.client.setPrivateKey(generator.getPrivateKey());
         updateClient();

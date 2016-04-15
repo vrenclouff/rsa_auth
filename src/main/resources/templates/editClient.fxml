@@ -6,11 +6,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditClientController">
    <children>
-      <Button layoutX="300.0" layoutY="309.0" mnemonicParsing="false" onAction="#addKey" text="+" />
-      <Button layoutX="300.0" layoutY="345.0" mnemonicParsing="false" onAction="#removeKey" prefHeight="31.0" prefWidth="31.0" text="-" />
+      <Button layoutX="300.0" layoutY="309.0" mnemonicParsing="false" onAction="#addKey" prefHeight="30.0" prefWidth="30.0" text="+" />
+      <Button layoutX="300.0" layoutY="345.0" mnemonicParsing="false" onAction="#removeKey" prefHeight="30.0" prefWidth="30.0" text="-" />
       <Label layoutX="10.0" layoutY="4.0" text="Public key" />
       <Label layoutX="10.0" layoutY="273.0" text="Know hosts" />
-      <Button layoutX="171.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleClose" prefHeight="25.0" prefWidth="70.0" text="Close" />      <Label layoutX="10.0" layoutY="144.0" text="Private key" />
+      <Button layoutX="150.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleClose" prefHeight="25.0" prefWidth="70.0" text="Close" />      <Label layoutX="10.0" layoutY="144.0" text="Private key" />
       <Button layoutX="239.0" layoutY="113.0" mnemonicParsing="false" onAction="#generateKeys" prefHeight="62.0" prefWidth="92.0" text="Generate pair keys" textAlignment="CENTER" wrapText="true" />
       <TextArea fx:id="privateKey" layoutX="10.0" layoutY="164.0" prefHeight="100.0" prefWidth="223.0" text="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== Client 1@mylaptop.local" wrapText="true" />
       <TextArea fx:id="publicKey" layoutX="10.0" layoutY="23.0" prefHeight="100.0" prefWidth="223.0" text="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== Client 1@mylaptop.local" wrapText="true" />
