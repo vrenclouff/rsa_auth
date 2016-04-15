@@ -39,6 +39,9 @@ public class EditClientController {
     private Stage primaryStage;
     private Client client;
 
+    /**
+     * Inicializace komponenty
+     */
     @FXML
     private void initialize() {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
@@ -46,7 +49,7 @@ public class EditClientController {
     }
 
     /**
-     * Sets the stage of this dialog.
+     * Nastaveni dialogoveho okna
      *
      * @param dialogStage
      */
@@ -55,13 +58,16 @@ public class EditClientController {
     }
 
     /**
-     * Called when the user clicks cancel.
+     * Ukonceni okna
      */
     @FXML
     private void handleClose() {
         primaryStage.close();
     }
 
+    /**
+     * Pridani klice
+     */
     @FXML
     private void addKey(){
         FXMLLoader loader = new FXMLLoader(FXMLTemplates.ADD_KEY);
@@ -84,6 +90,9 @@ public class EditClientController {
         dialogStage.showAndWait();
     }
 
+    /**
+     * Odstraneni klice u znamych hostu
+     */
     @FXML
     private void removeKey(){
         int selectedIndex = knownHost.getSelectionModel().getSelectedIndex();
@@ -99,6 +108,9 @@ public class EditClientController {
         }
     }
 
+    /**
+     * Generovani paru klicu
+     */
     @FXML
     private void generateKeys(){
         KeyMachine generator = new KeyMachine(client.getName());
@@ -107,11 +119,19 @@ public class EditClientController {
         updateClient();
     }
 
+    /**
+     * Nastaveni klienta
+     *
+     * @param client
+     */
     public void setClient(Client client){
         this.client = client;
         updateClient();
     }
 
+    /**
+     * Aktualizace klienta
+     */
     private void updateClient(){
         if (client == null) return;
         this.publicKey.setText(client.getPublicKey());

@@ -57,6 +57,9 @@ public class RootController {
     private Stage primaryStage;
 
 
+    /**
+     * Inicializace komponenty
+     */
     @FXML
     private void initialize() {
 
@@ -77,7 +80,7 @@ public class RootController {
     }
 
     /**
-     * Sets the stage of this dialog.
+     * Nastaveni dialogoveho okna
      *
      * @param dialogStage
      */
@@ -85,12 +88,17 @@ public class RootController {
         this.primaryStage = dialogStage;
     }
 
+    /**
+     * Uzavreni hlavniho okna
+     */
     @FXML
     private void close(){
         Platform.exit();
     }
 
-
+    /**
+     * Vraceni do zakladniho nastaveni
+     */
     private void reset(){
         updateStatus(appController.getClient1(), false);
         updateStatus(appController.getClient2(), false);
@@ -99,6 +107,11 @@ public class RootController {
         appController.getServer().getKnownHosts().clear();
     }
 
+    /**
+     * Zobrazeni okna O Aplikaci
+     *
+     * @param event
+     */
     @FXML
     private void showAbout(ActionEvent event){
         FXMLLoader loader = new FXMLLoader();
@@ -121,6 +134,11 @@ public class RootController {
         dialogStage.showAndWait();
     }
 
+    /**
+     * Aktualizace statusu klienta
+     *
+     * @param client
+     */
     private void updateStatus(Client client){
         boolean resultOfConnect;
 
@@ -133,6 +151,12 @@ public class RootController {
         updateStatus(client, resultOfConnect);
     }
 
+    /**
+     * Aktualizace statusu klienta
+     *
+     * @param client
+     * @param connecting
+     */
     private void updateStatus(Client client, boolean connecting){
         client.setConnecting(connecting);
         String status = connecting ? LocateString.getValue("button.disconnect") : LocateString.getValue("button.connect");
@@ -147,6 +171,11 @@ public class RootController {
         }
     }
 
+    /**
+     * Zobrazeni editacniho okna
+     *
+     * @param client
+     */
     private void showEdit(Client client){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(FXMLTemplates.EDIT);
@@ -170,12 +199,23 @@ public class RootController {
         dialogStage.showAndWait();
     }
 
+    /**
+     * Zmena ikony pri zmene statusu
+     *
+     * @param client
+     * @param status
+     */
     private void changeStatus(ImageView client, boolean status){
         String image = "/images/";
         image += status ? "green.png" : "red.png";
         client.setImage(new Image(image));
     }
 
+    /**
+     * Nastaveni aplikacniho kontroleru
+     *
+     * @param appController
+     */
     public void setAppController(AppController appController) {
         this.appController = appController;
     }

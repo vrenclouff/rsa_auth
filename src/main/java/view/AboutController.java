@@ -10,13 +10,16 @@ public class AboutController {
 
     private Stage dialogStage;
 
+    /**
+     * Inicializace komponenty
+     */
     @FXML
     private void initialize() {
         
     }
 
     /**
-     * Sets the stage of this dialog.
+     * Nastaveni dialogoveho okna
      *
      * @param dialogStage
      */
@@ -25,7 +28,7 @@ public class AboutController {
     }
 
     /**
-     * Called when the user clicks cancel.
+     * Ukoncni okna O aplikaci
      */
     @FXML
     private void handleClose() {

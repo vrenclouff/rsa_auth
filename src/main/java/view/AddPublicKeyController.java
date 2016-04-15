@@ -21,13 +21,16 @@ public class AddPublicKeyController {
     private Client client;
     private Stage primaryStage;
 
+    /**
+     * Inicializace komponenty
+     */
     @FXML
     private void initialize() {
 
     }
 
     /**
-     * Sets the stage of this dialog.
+     * Nastaveni dialogoveho okna
      *
      * @param dialogStage
      */
@@ -36,19 +39,27 @@ public class AddPublicKeyController {
     }
 
     /**
-     * Called when the user clicks cancel.
+     * Ukonceni okna na pridavani klicu
      */
     @FXML
     private void handleClose() {
         primaryStage.close();
     }
 
+    /**
+     * Pridani verejneho klice
+     */
     @FXML
     private void handleSave(){
         client.getKnownHosts().add(new KnownHost(clientName.getText(), clientKey.getText()));
         handleClose();
     }
 
+    /**
+     * Nasetovani klienta
+     *
+     * @param client
+     */
     public void setClient(Client client) {
         this.client = client;
     }
