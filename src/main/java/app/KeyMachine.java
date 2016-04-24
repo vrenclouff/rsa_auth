@@ -31,10 +31,11 @@ public class KeyMachine {
 
         x = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
 
-        e = new BigInteger("3");
-        while (x.gcd(e).intValue() > 1) {
-            e = e.add(new BigInteger("2"));
+        e = BigInteger.probablePrime(256, r);
+        while (x.gcd(e). intValue() > 1){
+            e = BigInteger.probablePrime(256, r);
         }
+
         d = e.modInverse(x);
 
         this.privateKey = new PrivateKey(d, n);
