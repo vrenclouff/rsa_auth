@@ -22,4 +22,6 @@ public class FXMLTemplates {
     /** PopUp pridani klice sablona */
     public static final URL ADD_KEY = FXMLTemplates.class.getResource(FOLDER+"addPublicKey.fxml");
 
+    /** Sifrovaci mod sablona */
+    public static final URL CIPHER_MODE = FXMLTemplates.class.getResource(FOLDER+"cipherMode.fxml");
 }

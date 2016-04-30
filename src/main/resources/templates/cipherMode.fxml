@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CipherModeController">
+   <children>
+      <Label layoutX="31.0" layoutY="120.0" prefHeight="27.0" prefWidth="136.0" text="Plane text">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="planeTextInput" layoutX="31.0" layoutY="149.0" prefHeight="99.0" prefWidth="172.0" wrapText="true" />
+      <ImageView fx:id="encryptImg" fitHeight="188.0" fitWidth="164.0" layoutX="332.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/encrypt.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="cipherText" layoutX="597.0" layoutY="141.0" prefHeight="99.0" prefWidth="172.0" wrapText="true" />
+      <Label layoutX="599.0" layoutY="106.0" prefHeight="27.0" prefWidth="136.0" text="Cipher text">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="340.0" layoutY="223.0" prefHeight="17.0" prefWidth="118.0" text="Encrypt">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="73.0" fitWidth="100.0" layoutX="229.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowBlackRight.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="100.0" layoutX="504.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowBlackRight.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="241.0" fitWidth="198.0" layoutX="563.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowBlackBack.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="decryptImg" fitHeight="188.0" fitWidth="164.0" layoutX="332.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/encrypt.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="340.0" layoutY="470.0" prefHeight="17.0" prefWidth="118.0" text="Decrypt">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="planeTextOutput" layoutX="31.0" layoutY="395.0" prefHeight="99.0" prefWidth="172.0" wrapText="true" />
+      <ImageView fitHeight="73.0" fitWidth="100.0" layoutX="229.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowBlackLeft.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="31.0" layoutY="365.0" prefHeight="27.0" prefWidth="136.0" text="Plane text">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

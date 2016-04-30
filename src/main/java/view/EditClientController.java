@@ -1,5 +1,6 @@
 package view;
 
+import app.AppController;
 import app.KeyMachine;
 import dao.Client;
 import dao.KnownHost;
@@ -37,6 +38,7 @@ public class EditClientController {
     private TableColumn<KnownHost, String> publicKeyColumn;
 
     private Stage primaryStage;
+    private AppController appController;
     private Client client;
 
     /**
@@ -99,12 +101,10 @@ public class EditClientController {
         if (selectedIndex >= 0) {
             knownHost.getItems().remove(selectedIndex);
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.initOwner(primaryStage);
-            alert.setTitle(LocateString.getValue("alert.warning.title.noSelection"));
-            alert.setHeaderText(LocateString.getValue("alert.warning.header.noSelection"));
-            alert.setContentText(LocateString.getValue("alert.warning.content.noSelection"));
-            alert.showAndWait();
+            appController.showAlert(Alert.AlertType.WARNING,
+                    LocateString.getValue("alert.warning.title.noSelection"),
+                    LocateString.getValue("alert.warning.header.noSelection"),
+                    LocateString.getValue("alert.warning.content.noSelection"));
         }
     }
 
@@ -127,6 +127,10 @@ public class EditClientController {
     public void setClient(Client client){
         this.client = client;
         updateClient();
+    }
+
+    public void setAppController(AppController appController){
+        this.appController = appController;
     }
 
     /**

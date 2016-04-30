@@ -12,6 +12,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import utils.LocateString;
@@ -108,6 +109,34 @@ public class RootController {
     }
 
     /**
+     * Vraceni do zakladniho nastaveni
+     */
+    @FXML
+    private void ciperMode(){
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(FXMLTemplates.CIPHER_MODE);
+        AnchorPane page = null;
+        try {
+            page = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle(LocateString.getValue("title.cipherMode"));
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        dialogStage.setScene(new Scene(page));
+
+        CipherModeController controller = loader.getController();
+
+        controller.setAppController(appController);
+        controller.setDialogStage(dialogStage);
+        dialogStage.showAndWait();
+    }
+
+    /**
      * Zobrazeni okna O Aplikaci
      *
      * @param event
@@ -195,6 +224,7 @@ public class RootController {
         EditClientController controller = loader.getController();
 
         controller.setClient(client);
+        controller.setAppController(appController);
         controller.setDialogStage(dialogStage);
         dialogStage.showAndWait();
     }

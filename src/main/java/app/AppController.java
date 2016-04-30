@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import utils.LocateString;
 import view.FXMLTemplates;
@@ -32,6 +33,8 @@ public class AppController extends Application {
 
     private Client server;
 
+    private Stage primaryStage;
+
     public AppController(){
         this.server = new Client(0, "Server");
         this.client1 = new Client(1, "Client 1");
@@ -40,6 +43,7 @@ public class AppController extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(FXMLTemplates.INDEX);
         Parent root = null;
         try {
@@ -60,7 +64,13 @@ public class AppController extends Application {
     public boolean authentication(Client client){
         if (client == null) return false;
         List<KnownHost> hosts = server.getKnownHosts().stream().filter(knownHost -> knownHost.getKey().contains(client.getName())).collect(Collectors.toList());
-        if (hosts == null) return false;
+        if (hosts.isEmpty()){
+            showAlert(Alert.AlertType.ERROR,
+                    LocateString.getValue("alert.error.title.noPublicKey"),
+                    LocateString.getValue("alert.error.header.noPublicKey"),
+                    LocateString.getValue("alert.error.content.noPublicKey"));
+            return false;
+        }
 
         /** Vygenerovani velkeho nahodneho cisla */
         BigInteger randomNumber = BigInteger.probablePrime(256, new SecureRandom());
@@ -77,7 +87,21 @@ public class AppController extends Application {
             /** Porovnani vysledku */
             if (plane.compareTo(randomNumber) == 0) return true;
         }
+
+        showAlert(Alert.AlertType.ERROR,
+                LocateString.getValue("alert.error.title.badKey"),
+                LocateString.getValue("alert.error.header.badKey"),
+                LocateString.getValue("alert.error.content.badKey"));
         return false;
+    }
+
+    public void showAlert(Alert.AlertType type, String title, String head, String content){
+        Alert alert = new Alert(type);
+        alert.initOwner(primaryStage);
+        alert.setTitle(title);
+        alert.setHeaderText(head);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     public void run(String [] args){

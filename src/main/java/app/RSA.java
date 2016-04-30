@@ -16,5 +16,4 @@ public class RSA {
     public static BigInteger decrypt(Key key, BigInteger msg){
         return msg.modPow(key.getDE(), key.getN());
     }
-
 }
