@@ -16,7 +16,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#ciperMode" text="Cipher mode" />
+                  <MenuItem mnemonicParsing="false" onAction="#ciperMode" text="Cryptographic mode" />
                   <MenuItem fx:id="reset" mnemonicParsing="false" text="Reset" />
               <MenuItem mnemonicParsing="false" onAction="#close" text="Exit" />
             </items>

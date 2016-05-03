@@ -67,6 +67,7 @@ public class CipherModeController {
 
     private void encryptHandler() {
         String input = planeTextInput.getText();
+        if (input.isEmpty()) return;
         KeyMachine machine = new KeyMachine(input.length()*4);
         privateKey = machine.privateKey();
         publicKey = machine.publicKey();
@@ -76,7 +77,9 @@ public class CipherModeController {
     }
 
     private void decryptHandler() {
-        BigInteger msg = RSA.decrypt(privateKey, new BigInteger(cipherText.getText()));
+        String input = cipherText.getText();
+        if (input.isEmpty()) return;
+        BigInteger msg = RSA.decrypt(privateKey, new BigInteger(input));
         planeTextOutput.setText(new String(msg.toByteArray()));
     }
 
